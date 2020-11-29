@@ -1,0 +1,29 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts";
+@import "_normalize";
+@import "theme/_vars";
+@import "theme/_mixins";
+@import "blocks/_other";
+@import "blocks/screen1";
+@import "blocks/screen2";
+
+html {
+  font-size: 100%;
+  @media (max-width: 1250px) and (min-width: 992px) {
+    font-size: 1.28vw;
+  }
+}
+
+a {
+  text-decoration: none;
+}

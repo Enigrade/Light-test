@@ -1,0 +1,123 @@
+.screen1 {
+  &__title {
+    @extend %title-h1;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: calc(50% - 1.03125rem);
+    margin-bottom: 2.0625rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      @media (max-width: 992px) {
+        width: 100%;
+        margin-bottom: 48px;
+      }
+      @media (max-width: 767px) {
+        border-top: 1px solid rgba(0,0,0,.3);
+        padding-top: 16px;
+        margin-bottom: 48px;
+      }
+  }
+  &__item-photo {
+    width: 50%;
+    order: 1;
+      img {
+        width: 100%;
+      }
+
+    @media (min-width: 992px) {
+      .screen1__item:nth-child(4n-2) &,
+      .screen1__item:nth-child(4n-3) & {
+        order: 0;
+      }
+    }
+
+    @media (max-width: 992px) {
+      order: 0;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  &__item-content {
+    width: 50%;
+    border-top: 1px solid rgba(0,0,0,.3);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    padding-right: 2rem;
+    order: 0;
+
+    @media (min-width: 992px) {
+      .screen1__item:nth-child(4n-2) &,
+      .screen1__item:nth-child(4n-3) & {
+        order: 1;
+        padding-left: 2rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      order: 1;
+      padding-left: 18px;
+      padding-right: 0;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      order: 0;
+      border-top: none;
+      padding: 0;
+    }
+  }
+
+  &__item-field {
+    margin-bottom: 1.5rem;
+    @media (max-width: 992px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item-field-name {
+    @extend %field-name;
+    margin-bottom: 4px;
+    &--second {
+      margin-bottom: 0.75rem;
+      text-transform: none;
+      font-weight: 700;
+      font-size: 1rem;
+        @media (max-width: 992px) {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+        @media (max-width: 767px) {
+          font-size: 12px;
+        }
+    }
+  }
+
+  &__item-field-desc {
+    @extend %field-desc;
+  }
+
+}
